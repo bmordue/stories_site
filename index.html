@@ -1,0 +1,36 @@
+<html><head><title>Stories results</title>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+<style>table, th, td { border: 1px solid black } </style>
+
+<script>
+$( document ).ready(function() {
+$.getJSON( "http://crissic.benmordue.co.uk:8000/api/stories?_limit=20&_order[comments]=desc", function( data ) {
+	  var json_rows = data.json;
+	  var html_rows = [];
+
+	  $.each( json_rows, function( index, val ) {
+	    html_rows.push("<tr><td>" + index + "</td><td>" + val.hnurl + " (<a href='" + val.url + "'>article</a>)</td><td>" + val.added + "</td><td>" + val.comments + "</td><td>" + val.starred + "</td></tr>\n");
+	  });
+	 
+	  $("#results_table").append(html_rows);
+	});});
+</script>
+
+</head>
+<body>
+
+<div id="debug"></div>
+
+<table id="results_table">
+<tr>
+<th>#</th>
+<th>hnurl</th>
+<th>added</th>
+<th>comments</th>
+<th>starred</th>
+</tr>
+</table>
+
+</body>
+</html>
