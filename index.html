@@ -1,36 +1,50 @@
-<html><head><title>Stories results</title>
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="HN stories and comment counts">
+    <meta name="author" content="Ben Mordue">
+    <link rel="icon" href="favicon.ico">
 
-<style>table, th, td { border: 1px solid black } </style>
+    <title>Stories</title>
 
-<script>
-$( document ).ready(function() {
-$.getJSON( "http://crissic.benmordue.co.uk:8000/api/stories?_limit=20&_order[comments]=desc", function( data ) {
-	  var json_rows = data.json;
-	  var html_rows = [];
+    <!-- Bootstrap core CSS -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
-	  $.each( json_rows, function( index, val ) {
-	    html_rows.push("<tr><td>" + index + "</td><td>" + val.hnurl + " (<a href='" + val.url + "'>article</a>)</td><td>" + val.added + "</td><td><a href='" + val.hnurl + "'>" + val.comments + "</a></td><td>" + val.starred + "</td></tr>\n");
-	  });
-	 
-	  $("#results_table").append(html_rows);
-	});});
-</script>
+    <!-- Custom styles for this template -->
+    <link href="assets/css/template.css" rel="stylesheet">
 
-</head>
-<body>
+  </head>
 
-<div id="debug"></div>
+  <body>
+    <div class="container">
 
-<table id="results_table">
-<tr>
-<th>#</th>
-<th>hnurl</th>
-<th>added</th>
-<th>comments</th>
-<th>starred</th>
-</tr>
-</table>
+      <div class="starter-template">
+        <div id="debug"></div>
+        <table id="results_table">
+          <tr>
+            <th>#</th>
+            <th>hnurl</th>
+            <th>added</th>
+            <th>comments</th>
+            <th>starred</th>
+          </tr>
+          <tr><td colspan="5">No results loaded</td></tr>
+        </table>
+      </div>
 
-</body>
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="bower_components/jquery/dist/jquery.min.js"><\/script>')</script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/js/stories.js"></script>
+  </body>
 </html>

@@ -1,0 +1,22 @@
+{
+  "name": "stories_site",
+  "homepage": "https://github.com/bmordue/stories_site",
+  "authors": [
+    "Ben Mordue <benmordue@gmail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "bootstrap": "^3.3.6"
+  }
+}
